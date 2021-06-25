@@ -3,6 +3,11 @@ info:
   title: product api
   description: create product crud operations using product api
   version: "0.1"
+
+servers:
+- url: "https://www.pwc.in/"
+  description: PWC server
+
 paths: 
  /products/{productId}:
     get:
@@ -16,8 +21,8 @@ paths:
         schema:
            type: integer
       responses:
-        "200":
-           description: Product Id is available
+        '200':
+           description: OK
            content:
              application/json:
                 schema:
@@ -38,4 +43,39 @@ paths:
            description: Product Id is not supplied
         '404':
            description: Requested Page not found
+
+security:
+- app_id: []
+
+tags:
+  - name: Inventory Data
+    description: "Get Product Details"
+
+externalDocs:
+  description: API Documentation
+  url: https://pwc.in
+      
+components:
+ parameters:
+   productName:
+       name: productName
+       in: query
+       schema:
+          type: string
+       description: Search product by product name
+
+   dop:
+       name: dop
+       in: query
+       schema:
+          type: string
+       description: Search product by dop
+       
+securitySchemes:
+    app_id:
+      type: apiKey
+      description: "API key to authorize requests. (If you don't have an API key, get one at https://openweathermap.org/. See https://idratherbewriting.com/learnapidoc/docapis_get_auth_keys.html for details.)"
+      name: appid
+      in: query
+
 
