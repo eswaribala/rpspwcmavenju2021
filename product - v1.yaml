@@ -1,0 +1,41 @@
+openapi: 3.0.3
+info:
+  title: product api
+  description: create product crud operations using product api
+  version: "0.1"
+paths: 
+ /products/{productId}:
+    get:
+      description: retrieve product by id
+      operationId: getProductById
+      parameters:
+      - name: productId
+        in: path
+        description: supply available product id
+        required: true
+        schema:
+           type: integer
+      responses:
+        "200":
+           description: Product Id is available
+           content:
+             application/json:
+                schema:
+                  type: object
+                  properties:
+                   productId: #Id attribute
+                     type: integer
+                     format: int64
+                   productName: #Productname attribute
+                     type: string
+                     description: Product Name #data type 
+                   dop: #dop attribute
+                     type: string #Data type
+                     description: Product DOP #Data type 
+ 
+       
+        '400':
+           description: Product Id is not supplied
+        '404':
+           description: Requested Page not found
+
