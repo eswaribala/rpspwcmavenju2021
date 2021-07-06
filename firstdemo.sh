@@ -20,3 +20,19 @@ echo "Not stretched much"
 else
 echo "Lengthy training hours"
 fi
+
+
+#test the file existence from command line argument
+filname=$1
+if [ -f "$filename" ]
+then
+ echo "file exists"
+else
+ echo "file not existing"
+fi
+
+#working with dates
+year=`date +%Y`
+month=`date +%m`
+day=`date +%d`
+echo "Todays date is $day-$month-$year"
