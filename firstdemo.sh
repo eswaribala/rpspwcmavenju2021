@@ -23,7 +23,7 @@ fi
 
 
 #test the file existence from command line argument
-filname=$1
+filename=$1
 if [ -f "$filename" ]
 then
  echo "file exists"
